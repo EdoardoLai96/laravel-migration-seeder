@@ -20,6 +20,7 @@ class TravelsTableSeeder extends Seeder
         $travel->insured = true;
         $travel->rating = 8;
         $travel->price = 800.72;
+        $travel->departure_date = '2022-01-01';
 
         $travel->save();
     }

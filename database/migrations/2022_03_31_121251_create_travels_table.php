@@ -25,6 +25,7 @@ class CreateTravelsTable extends Migration
             $table->boolean('insured');
             $table->tinyInteger('rating');
             $table->decimal('price',5,2);
+            $table->date('departure_date');
 
             $table->timestamps();
         });
