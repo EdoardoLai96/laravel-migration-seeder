@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Travel;
+use Faker\Generator as Faker;
 class TravelsTableSeeder extends Seeder
 {
     /**
@@ -9,19 +10,22 @@ class TravelsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $travel = new Travel();
+        for($i = 0; $i < 30; $i++){
 
-        $travel->destination = 'Miami';
-        $travel->resort_name = 'Miami Resort';
-        $travel->origin_airport = 'Cagliari';
-        $travel->duration_days = 12;
-        $travel->insured = true;
-        $travel->rating = 8;
-        $travel->price = 800.72;
-        $travel->departure_date = '2022-01-01';
-
-        $travel->save();
+            $travel = new Travel();
+    
+            $travel->destination = $faker->city();
+            $travel->resort_name = $faker->word();
+            $travel->origin_airport = $faker->city();
+            $travel->duration_days =  $faker->numberBetween(7,14);
+            $travel->insured = $faker->boolean();
+            $travel->rating = $faker->numberBetween(0,10);
+            $travel->price = $faker->randomFloat(2,100,500);
+            $travel->departure_date = $faker->dateTimeBetween('now','+40 week');
+    
+            $travel->save();
+        }
     }
 }
