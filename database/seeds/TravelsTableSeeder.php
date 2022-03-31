@@ -16,9 +16,9 @@ class TravelsTableSeeder extends Seeder
 
             $travel = new Travel();
     
-            $travel->destination = $faker->city();
+            $travel->destination = $faker->state();
             $travel->resort_name = $faker->word();
-            $travel->origin_airport = $faker->city();
+            $travel->origin_airport = $faker->state();
             $travel->duration_days =  $faker->numberBetween(7,14);
             $travel->insured = $faker->boolean();
             $travel->rating = $faker->numberBetween(0,10);
